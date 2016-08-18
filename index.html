@@ -7,32 +7,34 @@
   </head>
   <body class="clearfix">
     <header>
-      <div id="logo">
-        <img src="imgs/main_logo1.png">
-      </div>
-      <div id="topNav">
-        <nav id="globalNav">
-          <a class="navLink" href="index.html">Home</a>
-          <a class="navLink" href="medList.html">Medications</a>
-          <a class="navLink" href="archives.html">Archives</a>
-          <a class="navLink" href="aboutus.html">About Us</a>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <section class="container" id="upNextSec">
-        <h1>Up Next</h1>
-        <p id="noMedMessage">You have no medications</p>
-        <table class="medicationTableView" id="upNextTable" hidden>
-          <tr>
-            <th>Medication</th>
-            <th>Time to Take Next</th>
-            <th>Dosage Required</th>
-            <th>Took/Skip</th>
-          </tr>
-        </table>
-      </section>
-      <section class="containerLeft">
+      <!--This section was originally the index.html  -->
+      <section id="dashboard">
+        <div id="logo">
+          <img src="imgs/main_logo1.png">
+        </div>
+        <div id="topNav">
+          <nav id="globalNav">
+            <a class="navLink" href="index.html">Home</a>
+            <a class="navLink" href="medList.html">Medications</a>
+            <a class="navLink" href="archives.html">Archives</a>
+            <a class="navLink" href="aboutus.html">About Us</a>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <section class="container" id="upNextSec">
+          <h1>Up Next</h1>
+          <p id="noMedMessage">You have no medications</p>
+          <table class="medicationTableView" id="upNextTable" hidden>
+            <tr>
+              <th>Medication</th>
+              <th>Time to Take Next</th>
+              <th>Dosage Required</th>
+              <th>Took/Skip</th>
+            </tr>
+          </table>
+        </section>
+        <section class="containerLeft">
           <h1>Your Upcoming Refills</h1>
           <section id="refills">
             <p id='noRefills'>You have no medications needing a refill.</p>
@@ -43,9 +45,112 @@
               <input id="addDrugsButton" class="buttonThing" type="submit" value="Add Medication">
             </form>
           </section>
+        </section>
+        <section class="containerRight" id="streak">
+          <canvas id="myChart" width="150" height="100"></canvas>
+        </section>
       </section>
-      <section class="containerRight" id="streak">
-        <canvas id="myChart" width="150" height="100"></canvas>
+
+      <!--This section was originally addmed.html-->
+      <section id="addMed">
+        <div class="clearfix" class="containerForm">
+          <h1 class="title" id="addNewTitle" hidden="false">Add New Mediation</h1>
+          <h1 class="title" id="editMedTitle" hidden>Edit Medication</h1>
+          <section class="desc-block-left" id="medicationForm">
+            <form id="medForm">
+              <fieldset class="formGroup" id="firstFields">
+                <legend id="addForm">ADD NEW MEDICATION</legend>
+                <input type="text" class="addForms" id="medName" placeholder="Medication Name" required />
+                <input type="text" class="addForms" id="docName" placeholder="Prescribing MD Name" />
+                <input type="number" class="addForms" id="dose" placeholder="Dosage" required/>
+                <select class="medSelect" class="addForms" id="dosageType" name="dosageType">
+                  <option value="default">Dosage Type</option>
+                  <option value="Pills">Pills</option>
+                  <option value="CC">cc</option>
+                  <option value="ML">ml</option>
+                  <option value="GR">gr</option>
+                  <option value="MG">mg</option>
+                  <option value="Drops">Drops</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input type="number" class="addForms" id="quantity" placeholder="Number in Rx" />
+                <input type="date" class="addForms" id="startDate" placeholder="Start Date" required/>
+                <input type="text" class="addForms" id="duration" placeholder="Duration of Rx" />
+                <select class="interval" class="addForms" id="intervalTake" name="intervalTake" required>
+                  <option value="default">Intervals</option>
+                  <option value="daily">Every Day</option>
+                  <option value="otherDay">Every Other Day</option>
+                  <option value="thirdDay">Every Third Day</option>
+                  <option value="weekly">Once a Week</option>
+                  <option value="twoWeeks">Once Every Two Weeks</option>
+                  <option value="monthly">Once a Month</option>
+                </select>
+                <label id="takeLabel" class="addForms" for="firstTake">First Time Taken</label>
+                <input type="time" class="addForms" id="firstTake" placeholder="First Time Taken" required/>
+                <select class="foodSelect" class="addForms" id="foodInstructions" name="food">
+                  <option value="default">Food Instructions</option>
+                  <option value="with">With Food</option>
+                  <option value="before">Before Food</option>
+                </select>
+              </fieldset>
+            </section>
+            <section class="desc-block-right">
+              <fieldset class="formGroup" class="addForms" id="secondFields">
+                <input type="number" class="addForms" id="numRefills" placeholder="Number of Refills" />
+                <input type="text" class="addForms" id="pharmName" placeholder="Pharmacy Name" />
+                <input type="tel" class="addForms" id="pharmNumber" placeholder="Pharmacy Phone" />
+                <label class="takingInstruction"><input type="checkbox" id="noLongerTaking" value="doneTaking"> No Longer Taking This</label>
+                <label class="takingInstruction"><input type="checkbox" id="addSched" value="addToSchedule"> Add to My Current Schedule</label>
+                <textarea class="addForms" id="medNotes" rows="4" cols="50">Additional Notes </textarea>
+                <section id="actionGroup">
+                  <a id="cancelThing" href="medList.html"> Cancel </a>
+                  <input class="buttonThing" type="submit" value="Save" id="save" />
+                </section>
+              </fieldset2>
+            </form>
+          </section>
+          <section id="disclaimer">
+            <p>Please take all medications as directed by your prescribing physician.  If you experience any negative side effects, please contact your doctor immediately.  If you miss a dosage, please contact your physician as soon as possible.  For all other emergencies, please call 911 or go to your nearest emergency room.</p>
+          </section>
+        </div>
+      </section>
+
+      <!--This section was originally archives.html-->
+      <section id="archives">
+        <section class="contianer" id="archiveMedList">
+          <h1>Your Archived Medications</h1>
+          <section id="archiveTable">
+            <table class="medicationTableView" id="theArchTable">
+              <tr>
+                <th>Medication</th>
+                <th>Dosage</th>
+                <th>Dosage Type</th>
+                <th>Amount Remaining</th>
+              </tr>
+            </table>
+          </section>
+        </section>
+      </section>
+
+
+      <!--This section was originally aboutus.html-->
+      <section id="aboutUs">
+        <h1>About Us</h1>
+        <div id="container">
+          <div id="left">
+            <img src="imgs/jessica.jpg" alt="" />
+            <h2>Jessica</h2>
+            <p>
+              Jessica comes from a background in science and has decided it is time for a career change! She learned about Code Fellows a while back and was excited about the program so she joined soon after. One day she hopes to move into a developer position. Other than learning to code, she loves her cats and loves to travel.
+            </p>
+          </div>
+          <div id="right">
+            <img src="imgs/jonathan.jpg" alt="" />
+            <h2>Jonathan</h2>
+            <p>
+              Jonathan is a recent transplant to Seattle from Alabama.  He’s worked as a software Business Analyst for the past 10 years.  He’s a published author with several short pieces and two novels under his belt.  He spends his days working on the next book, playing with his Boston Terriers and chatting with the voices in his head.
+            </p>
+          </div>
       </section>
     </main>
     <footer align="center">
