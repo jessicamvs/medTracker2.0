@@ -7,20 +7,21 @@
   </head>
   <body class="clearfix">
     <header>
-      <!--This section was originally the index.html  -->
-      <section id="dashboard" class="tab-content">
-        <div id="logo">
-          <img src="imgs/main_logo1.png">
-        </div>
-        <div id="topNav">
-          <nav id="globalNav">
-            <a class="navLink" href="index.html">Home</a>
-            <a class="navLink" href="medList.html">Medications</a>
-            <a class="navLink" href="archives.html">Archives</a>
-            <a class="navLink" href="aboutus.html">About Us</a>
-          </nav>
-        </div>
-      </header>
+      <div id="logo">
+        <img src="imgs/main_logo1.png">
+      </div>
+      <div id="topNav">
+        <nav id="globalNav">
+          <a class="navLink" href="index.html">Home</a>
+          <a class="navLink" href="medList.html">Medications</a>
+          <a class="navLink" href="archives.html">Archives</a>
+          <a class="navLink" href="aboutus.html">About Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <!--This section was originally the index.html  -->
+    <section id="dashboard" class="tab-content">
       <main>
         <section class="container" id="upNextSec">
           <h1>Up Next</h1>
@@ -115,6 +116,24 @@
         </div>
       </section>
 
+      <!--This section was originally medList.html-->
+      <section class="contianer" id="medList" class="tab-content">
+        <h1>Your Current Medications</h1>
+        <form action="addmed.html">
+          <input class="buttonThing" type="submit" value="Add New Medication"></form>
+        <section id="medTable">
+          <table class="medicationTableView" id="theTable">
+            <tr>
+              <th>Medication</th>
+              <th>Dosage</th>
+              <th>Dosage Type</th>
+              <th>Amount Remaining</th>
+              <th>      </th>
+            </tr>
+          </table>
+        </section>
+      </section>
+
 
       <!--This section was originally archives.html-->
       <section id="archives" class="tab-content">
@@ -163,5 +182,8 @@
     </footer>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/addmed.js"></script>
+    <script type="text/javascript" src="js/medList.js"></script>
+    <script type="text/javascript" src="js/archive.js"></script>
   </body>
 </html>
