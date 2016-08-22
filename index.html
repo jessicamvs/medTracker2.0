@@ -4,6 +4,7 @@
     <title>MedTracker</title>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js'></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   </head>
   <body class="clearfix">
     <header>
@@ -12,16 +13,16 @@
       </div>
       <div id="topNav">
         <nav id="globalNav">
-          <a class="navLink" href="index.html">Home</a>
-          <a class="navLink" href="medList.html">Medications</a>
-          <a class="navLink" href="archives.html">Archives</a>
-          <a class="navLink" href="aboutus.html">About Us</a>
+          <a class="navLink" href="/">Home</a>
+          <a class="navLink" href="/medList">Medications</a>
+          <a class="navLink" href="/archives">Archives</a>
+          <a class="navLink" href="/aboutUs">About Us</a>
         </nav>
       </div>
     </header>
 
     <!--This section was originally the index.html  -->
-    <section id="dashboard" class="tab-content">
+    <section id="home" class="tab-content">
       <main>
         <section class="container" id="upNextSec">
           <h1>Up Next</h1>
@@ -185,6 +186,9 @@
     <script type="text/javascript" src="js/addmed.js"></script>
     <script type="text/javascript" src="js/medList.js"></script>
     <script type="text/javascript" src="js/archive.js"></script>
+    <script type="text/javascript" src="js/archivesController.js"></script>
+    <script type="text/javascript" src="js/aboutController.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
     <script type="text/javascript" src="js/routes.js"></script>
   </body>
 </html>

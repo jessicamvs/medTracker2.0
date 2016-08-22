@@ -1,10 +1,10 @@
-page('/', index);
+page('/', medViewController.index);
 
-page('/medications', nameOfFunctionInController.JS goes here);
+page('/medications', medListController.index);
 
-page('/archives', nameOfFunctionInController.JS goes here);
+page('/archives', archivesController.index);
 
-page('/about', nameOfFunctionInController.JS goes here);
+page('/about', aboutController.index);
 
 page('*', function() {
   console.error("page not found");
