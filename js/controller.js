@@ -6,22 +6,14 @@
   medViewController.index = function() {
     console.log('running medViewController');
     $('.tab-content').hide();
-    $('#home').show();
+    $('.home').show();
   };
 
   var addMedController = {};
   addMedController.index = function () {
-    $('#home').hide();
+    $('.home').hide();
     $('#addmed').show();
   };
-
-  var medListController = {};
-  medListController.index = function () {
-    $('#home').hide();
-    $('#medList').show();
-  };
-
-
 
   module.medViewController = medViewController;
   module.addMedController = addMedController;

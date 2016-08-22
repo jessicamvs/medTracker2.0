@@ -3,6 +3,7 @@
   <head>
     <title>MedTracker</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js'></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   </head>
@@ -15,16 +16,16 @@
       <div id="topNav">
         <nav id="globalNav">
           <a class="navLink" href="/">Home</a>
-          <a class="navLink" href="/medList">Medications</a>
+          <a class="navLink" href="/medications">Medications</a>
           <a class="navLink" href="/archives">Archives</a>
-          <a class="navLink" href="/aboutUs">About Us</a>
+          <a class="navLink" href="/about">About Us</a>
         </nav>
       </div>
     </header>
 
     <!--This section was originally the index.html  -->
     <main>
-        <section class="container" id="upNextSec">
+        <section class="container home tab-content" id="upNextSec">
           <h1>Up Next</h1>
           <p id="noMedMessage">You have no medications</p>
           <table class="medicationTableView" id="upNextTable" hidden>
@@ -36,7 +37,7 @@
             </tr>
           </table>
         </section>
-        <section class="containerLeft">
+        <section class="containerLeft tab-content">
           <h1>Your Upcoming Refills</h1>
           <section id="refills">
             <p id='noRefills'>You have no medications needing a refill.</p>
@@ -65,7 +66,7 @@
                 <input type="text" class="addForms" id="medName" placeholder="Medication Name" required />
                 <input type="text" class="addForms" id="docName" placeholder="Prescribing MD Name" />
                 <input type="number" class="addForms" id="dose" placeholder="Dosage" required/>
-                <select class="medSelect" class="addForms" id="dosageType" name="dosageType">
+                <select class="medSelect addForms" id="dosageType" name="dosageType">
                   <option value="default">Dosage Type</option>
                   <option value="Pills">Pills</option>
                   <option value="CC">cc</option>
@@ -78,7 +79,7 @@
                 <input type="number" class="addForms" id="quantity" placeholder="Number in Rx" />
                 <input type="date" class="addForms" id="startDate" placeholder="Start Date" required/>
                 <input type="text" class="addForms" id="duration" placeholder="Duration of Rx" />
-                <select class="interval" class="addForms" id="intervalTake" name="intervalTake" required>
+                <select class="interval addForms" id="intervalTake" name="intervalTake" required>
                   <option value="default">Intervals</option>
                   <option value="daily">Every Day</option>
                   <option value="otherDay">Every Other Day</option>
@@ -118,7 +119,7 @@
       </section>
 
       <!--This section was originally medList.html-->
-      <section class="contianer" id="medList" class="tab-content">
+      <section class="contianer tab-content" id="medList">
         <h1>Your Current Medications</h1>
         <form action="addmed.html">
           <input class="buttonThing" type="submit" value="Add New Medication"></form>
@@ -136,7 +137,7 @@
       </section>
 
       <!--This section was originally archives.html-->
-        <section class="contianer" id="archiveMedList" class="tab-content">
+        <section class="contianer tab-content" id="archiveMedList">
           <h1>Your Archived Medications</h1>
           <section id="archiveTable">
             <table class="medicationTableView" id="theArchTable">
@@ -185,8 +186,9 @@
     <script type="text/javascript" src="js/addmed.js"></script>
     <script type="text/javascript" src="js/medList.js"></script>
     <script type="text/javascript" src="js/archive.js"></script>
-    <script type="text/javascript" src="js/archivesController.js"></script>
     <script type="text/javascript" src="js/aboutController.js"></script>
+    <script type="text/javascript" src="js/archivesController.js"></script>
+    <script type="text/javascript" src="js/medListController.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
     <script type="text/javascript" src="js/routes.js"></script>
 

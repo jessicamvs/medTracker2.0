@@ -2,7 +2,7 @@
   var aboutController = {};
   aboutController.index = function () {
     console.log('running aboutController');
-    $('#home').hide();
+    $('.tab-content').hide();
     $('#aboutUs').show();
   };
 

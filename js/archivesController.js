@@ -2,9 +2,9 @@
   var archivesController = {};
   archivesController.index = function () {
     console.log('running archivesController');
-    $('#home').hide();
-    $('#archives').show();
+    $('.tab-content').hide();
+    $('#archiveMedList').show();
   };
 
-  module.aboutController = aboutController;
+  module.archivesController = archivesController;
 })(window);
