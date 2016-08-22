@@ -7,6 +7,7 @@
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   </head>
   <body class="clearfix">
+
     <header>
       <div id="logo">
         <img src="imgs/main_logo1.png">
@@ -22,8 +23,7 @@
     </header>
 
     <!--This section was originally the index.html  -->
-    <section id="home" class="tab-content">
-      <main>
+    <main>
         <section class="container" id="upNextSec">
           <h1>Up Next</h1>
           <p id="noMedMessage">You have no medications</p>
@@ -108,7 +108,7 @@
                   <a id="cancelThing" href="medList.html"> Cancel </a>
                   <input class="buttonThing" type="submit" value="Save" id="save" />
                 </section>
-              </fieldset2>
+              </fieldset>
             </form>
           </section>
           <section id="disclaimer">
@@ -135,10 +135,8 @@
         </section>
       </section>
 
-
       <!--This section was originally archives.html-->
-      <section id="archives" class="tab-content">
-        <section class="contianer" id="archiveMedList">
+        <section class="contianer" id="archiveMedList" class="tab-content">
           <h1>Your Archived Medications</h1>
           <section id="archiveTable">
             <table class="medicationTableView" id="theArchTable">
@@ -151,8 +149,6 @@
             </table>
           </section>
         </section>
-      </section>
-
 
       <!--This section was originally aboutus.html-->
       <section id="aboutUs" class="tab-content">
@@ -173,7 +169,9 @@
             </p>
           </div>
       </section>
+
     </main>
+
     <footer align="center">
       <p class="copyright">&copy; 2016 MedTracker</p>
       <a class="footLink" href="index.html">Home</a>
@@ -181,6 +179,7 @@
       <a class="footLink" href="archives.html">Archives</a>
       <a class="footLink" href="aboutus.html">About Us</a>
     </footer>
+
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/addmed.js"></script>
@@ -190,5 +189,6 @@
     <script type="text/javascript" src="js/aboutController.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
     <script type="text/javascript" src="js/routes.js"></script>
+
   </body>
 </html>
