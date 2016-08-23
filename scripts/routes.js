@@ -7,7 +7,7 @@ page('/about', aboutController.index);
 page('/', medViewController.index);
 
 page('*', function() {
-  console.error('page not found');
+  console.error("page not found");
 });
 
 page();
