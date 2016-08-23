@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/icon.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   </head>
   <body class="clearfix">
@@ -43,10 +43,10 @@
         <section class="containerLeft tab-content">
           <h1>Your Upcoming Refills</h1>
           <section id="refills">
-            <p id='noRefills'>You have no medications needing a refill.</p>
+            <p id="noRefills">You have no medications needing a refill.</p>
           </section>
           <section id="thingsToDoGroup">
-            <a id="editLinkThing" href="addmed.html" id="editMeds">Edit Current Medications</a>
+            <a id="editLinkThing" href="addmed.html" class="editMeds">Edit Current Medications</a>
             <form action="addmed.html">
               <input id="addDrugsButton" class="buttonThing" type="submit" value="Add Medication">
             </form>
@@ -55,11 +55,10 @@
         <section class="containerRight" id="streak">
           <canvas id="myChart" width="150" height="100"></canvas>
         </section>
-      </section>
 
       <!--This section was originally addmed.html-->
       <section id="addMed" class="tab-content">
-        <div class="clearfix" class="containerForm">
+        <div class="clearfix containerForm">
           <h1 class="title" id="addNewTitle" hidden="false">Add New Mediation</h1>
           <h1 class="title" id="editMedTitle" hidden>Edit Medication</h1>
           <section class="desc-block-left" id="medicationForm">
@@ -93,15 +92,15 @@
                 </select>
                 <label id="takeLabel" class="addForms" for="firstTake">First Time Taken</label>
                 <input type="time" class="addForms" id="firstTake" placeholder="First Time Taken" required/>
-                <select class="foodSelect" class="addForms" id="foodInstructions" name="food">
+                <select class="foodSelect addForms" id="foodInstructions" name="food">
                   <option value="default">Food Instructions</option>
                   <option value="with">With Food</option>
                   <option value="before">Before Food</option>
                 </select>
               </fieldset>
-            </section>
+          </section>
             <section class="desc-block-right">
-              <fieldset class="formGroup" class="addForms" id="secondFields">
+              <fieldset class="formGroup addForms" id="secondFields">
                 <input type="number" class="addForms" id="numRefills" placeholder="Number of Refills" />
                 <input type="text" class="addForms" id="pharmName" placeholder="Pharmacy Name" />
                 <input type="tel" class="addForms" id="pharmNumber" placeholder="Pharmacy Phone" />

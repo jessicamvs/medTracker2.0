@@ -4,9 +4,8 @@ if (localStorage.drugArray) {
   medications = [];
 }
 
-var formEl = document.getElementById('medForm');
-formEl.addEventListener('submit', function(event) {
-  event.preventDefault();
+var formEl = $('#medForm').on('click', 'submit', function(e) {
+  e.preventDefault();
   var newName = event.target.medName.value.charAt(0).toUpperCase() + event.target.medName.value.slice(1).toLowerCase();
   var newPrescriber = event.target.docName.value;
   var newDosage = event.target.dose.value;
@@ -34,11 +33,12 @@ formEl.addEventListener('submit', function(event) {
       localStorage.setItem('todaysMedsStored', JSON.stringify(todaysMeds));
     }
   }
-
   var jsonMed = JSON.stringify(medications);
   console.log(jsonMed);
   localStorage.setItem('drugArray', jsonMed);
 });
+// document.getElementById('medForm');
+// formEl.addEventListener('submit', function(event) {
 
 Medication.renderEditFields = function () {
   if(localStorage.drugArray && localStorage.medClicked) {
