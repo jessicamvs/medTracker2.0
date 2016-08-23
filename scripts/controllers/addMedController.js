@@ -5,8 +5,9 @@
   var addMedController = {};
 
   addMedController.index = function () {
-    $('.home').hide();
-    $('#addmed').show();
+    console.log('addMedController.index running');
+    $('.tab-content').hide();
+    $('#addMed').show();
   };
 
   module.addMedController = addMedController;
