@@ -4,41 +4,61 @@ if (localStorage.drugArray) {
   medications = [];
 }
 
-var formEl = $('#medForm').on('click', 'submit', function(e) {
-  e.preventDefault();
-  var newName = event.target.medName.value.charAt(0).toUpperCase() + event.target.medName.value.slice(1).toLowerCase();
-  var newPrescriber = event.target.docName.value;
-  var newDosage = event.target.dose.value;
-  var newDoseType = event.target.dosageType.value;
-  var newQuantity = event.target.quantity.value;
-  var newStart = event.target.startDate.value;
-  var newDuration = event.target.duration.value;
-  var newIntervals = event.target.intervalTake.value;
-  var newFirst = event.target.firstTake.value;
-  var newFood = event.target.food.value;
-  var newNumRefills = event.target.numRefills.value;
-  var newPharmName = event.target.pharmName.value;
-  var newPharmPhone = event.target.pharmNumber.value;
-  var newTaking = event.target.noLongerTaking.checked;
-  var newAddCurrSched = event.target.addSched.checked;
-  var newNotes = event.target.medNotes.value;
-  var newDrug = new Medication(newName, newPrescriber, newDosage, newDoseType, newQuantity, newStart, newDuration, newIntervals, newFirst, newFood, newNumRefills, newPharmName, newPharmPhone, newTaking, newAddCurrSched, newNotes);
-  formEl.reset();
+Medication.clearFields = function() {
+  $('#medName').val("");
+  $('#docName').val("");
+  $('#dose').val("");
+  $('#dosageType').val("");
+  $('#quantity').val("");
+  $('#startDate').val("");
+  $('#duration').val("");
+  $('#intervalTake').val("");
+  $('#firstTake').val("");
+  $('#food').val("");
+  $('#numRefills').val("");
+  $('#pharmName').val("");
+  $('#pharmNumber').val("");
+  $('#noLongerTaking').prop('checked', false);
+  $('#addSched').prop('checked', false);
+  $('#medNotes').val("");
+};
 
-  if(localStorage.todaysMedsStored) {
-    if(newDrug.taking === false) {
-      var todaysMeds = JSON.parse(localStorage.getItem('todaysMedsStored'));
-      console.log(todaysMeds);
-      todaysMeds.push(newDrug);
-      localStorage.setItem('todaysMedsStored', JSON.stringify(todaysMeds));
+Medication.newMedication = function() {
+  var formEl = $('#medForm').on('click', '#save', function(e) {
+    console.log('running newMedication');
+    e.preventDefault();
+    var newName = $('#medName').val().charAt(0).toUpperCase() + $('#medName').val().slice(1).toLowerCase();
+    var newPrescriber = $('#docName').val();
+    var newDosage = $('#dose').val();
+    var newDoseType = $('#dosageType').val();
+    var newQuantity = $('#quantity').val();
+    var newStart = $('#startDate').val();
+    var newDuration = $('#duration').val();
+    var newIntervals = $('#intervalTake').val();
+    var newFirst = $('#firstTake').val();
+    var newFood = $('#food').val();
+    var newNumRefills = $('#numRefills').val();
+    var newPharmName = $('#pharmName').val();
+    var newPharmPhone = $('#pharmNumber').val();
+    var newTaking = $('#noLongerTaking').is(':checked');
+    var newAddCurrSched = $('#addSched').is(':checked');
+    var newNotes = $('#medNotes').val();
+    var newDrug = new Medication(newName, newPrescriber, newDosage, newDoseType, newQuantity, newStart, newDuration, newIntervals, newFirst, newFood, newNumRefills, newPharmName, newPharmPhone, newTaking, newAddCurrSched, newNotes);
+    console.log(newDrug);
+    Medication.clearFields();
+    if(localStorage.todaysMedsStored) {
+      if(newDrug.taking === false) {
+        var todaysMeds = JSON.parse(localStorage.getItem('todaysMedsStored'));
+        console.log('today meds are' + todaysMeds);
+        todaysMeds.push(newDrug);
+        localStorage.setItem('todaysMedsStored', JSON.stringify(todaysMeds));
+      }
     }
-  }
-  var jsonMed = JSON.stringify(medications);
-  console.log(jsonMed);
-  localStorage.setItem('drugArray', jsonMed);
-});
-// document.getElementById('medForm');
-// formEl.addEventListener('submit', function(event) {
+    var jsonMed = JSON.stringify(medications);
+    console.log(jsonMed);
+    localStorage.setItem('drugArray', jsonMed);
+  });
+};
 
 Medication.renderEditFields = function () {
   if(localStorage.drugArray && localStorage.medClicked) {
@@ -64,3 +84,4 @@ Medication.renderEditFields = function () {
 };
 
 Medication.renderEditFields();
+Medication.newMedication();

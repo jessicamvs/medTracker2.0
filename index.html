@@ -61,8 +61,8 @@
         <div class="clearfix containerForm">
           <h1 class="title" id="addNewTitle" hidden="false">Add New Mediation</h1>
           <h1 class="title" id="editMedTitle" hidden>Edit Medication</h1>
-          <section class="desc-block-left" id="medicationForm">
-            <form id="medForm">
+          <form id="medForm">
+            <section class="desc-block-left" id="medicationForm">
               <fieldset class="formGroup" id="firstFields">
                 <legend id="addForm">ADD NEW MEDICATION</legend>
                 <input type="text" class="addForms" id="medName" placeholder="Medication Name" required />
@@ -99,21 +99,21 @@
                 </select>
               </fieldset>
           </section>
-            <section class="desc-block-right">
-              <fieldset class="formGroup addForms" id="secondFields">
-                <input type="number" class="addForms" id="numRefills" placeholder="Number of Refills" />
-                <input type="text" class="addForms" id="pharmName" placeholder="Pharmacy Name" />
-                <input type="tel" class="addForms" id="pharmNumber" placeholder="Pharmacy Phone" />
-                <label class="takingInstruction"><input type="checkbox" id="noLongerTaking" value="doneTaking"> No Longer Taking This</label>
-                <label class="takingInstruction"><input type="checkbox" id="addSched" value="addToSchedule"> Add to My Current Schedule</label>
-                <textarea class="addForms" id="medNotes" rows="4" cols="50">Additional Notes </textarea>
-                <section id="actionGroup">
-                  <a id="cancelThing" href="medList.html"> Cancel </a>
-                  <input class="buttonThing" type="submit" value="Save" id="save" />
-                </section>
-              </fieldset>
-            </form>
+          <section class="desc-block-right">
+            <fieldset class="formGroup addForms" id="secondFields">
+              <input type="number" class="addForms" id="numRefills" placeholder="Number of Refills" />
+              <input type="text" class="addForms" id="pharmName" placeholder="Pharmacy Name" />
+              <input type="tel" class="addForms" id="pharmNumber" placeholder="Pharmacy Phone" />
+              <label class="takingInstruction"><input type="checkbox" id="noLongerTaking" value="doneTaking"> No Longer Taking This</label>
+              <label class="takingInstruction"><input type="checkbox" id="addSched" value="addToSchedule"> Add to My Current Schedule</label>
+              <textarea class="addForms" id="medNotes" rows="4" cols="50">Additional Notes </textarea>
+              <section id="actionGroup">
+                <a id="cancelThing" href="medList.html"> Cancel </a>
+                <input class="buttonThing" type="submit" value="Save" id="save" />
+              </section>
+            </fieldset>
           </section>
+        </form>
           <section id="disclaimer">
             <p>Please take all medications as directed by your prescribing physician.  If you experience any negative side effects, please contact your doctor immediately.  If you miss a dosage, please contact your physician as soon as possible.  For all other emergencies, please call 911 or go to your nearest emergency room.</p>
           </section>
