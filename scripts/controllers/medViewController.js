@@ -4,7 +4,7 @@
   medViewController.index = function() {
     console.log('running medViewController');
     $('.tab-content').hide();
-    $('.home').show();
+    $('#home').show();
   };
 
   module.medViewController = medViewController;
