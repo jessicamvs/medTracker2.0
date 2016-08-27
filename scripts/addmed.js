@@ -5,22 +5,22 @@ if (localStorage.drugArray) {
 }
 
 Medication.clearFields = function() {
-  $('#medName').val("");
-  $('#docName').val("");
-  $('#dose').val("");
-  $('#dosageType').val("");
-  $('#quantity').val("");
-  $('#startDate').val("");
-  $('#duration').val("");
-  $('#intervalTake').val("");
-  $('#firstTake').val("");
-  $('#food').val("");
-  $('#numRefills').val("");
-  $('#pharmName').val("");
-  $('#pharmNumber').val("");
+  $('#medName').val('');
+  $('#docName').val('');
+  $('#dose').val('');
+  $('#dosageType').val('');
+  $('#quantity').val('');
+  $('#startDate').val('');
+  $('#duration').val('');
+  $('#intervalTake').val('');
+  $('#firstTake').val('');
+  $('#food').val('');
+  $('#numRefills').val('');
+  $('#pharmName').val('');
+  $('#pharmNumber').val('');
   $('#noLongerTaking').prop('checked', false);
   $('#addSched').prop('checked', false);
-  $('#medNotes').val("");
+  $('#medNotes').val('');
 };
 
 Medication.newMedication = function() {
