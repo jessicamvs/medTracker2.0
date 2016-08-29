@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>MedTracker</title>
+    <link rel="stylesheet" href="vendors/styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="styles/layout.css">
@@ -14,7 +15,7 @@
 
     <header>
       <div id="logo">
-        <img src="imgs/main_logo1.png">
+        MEDTRACKER
       </div>
       <div id="topNav">
         <nav id="globalNav">
@@ -28,7 +29,8 @@
 
     <!--This section was originally the index.html  -->
     <main>
-        <section class="container home tab-content" id="upNextSec">
+      <section id="home" class="tab-content">
+        <section class="container" id="upNextSec">
           <h1>Up Next</h1>
           <p id="noMedMessage">You have no medications</p>
           <table class="medicationTableView" id="upNextTable" hidden>
@@ -55,6 +57,7 @@
         <section class="containerRight" id="streak">
           <canvas id="myChart" width="150" height="100"></canvas>
         </section>
+      </section>
 
       <!--This section was originally addmed.html-->
       <section id="addMed" class="tab-content">
@@ -176,12 +179,12 @@
 
     </main>
 
-    <footer align="center">
+    <footer>
       <p class="copyright">&copy; 2016 MedTracker</p>
-      <a class="footLink" href="index.html">Home</a>
-      <a class="footLink" href="medList.html">Medications</a>
-      <a class="footLink" href="archives.html">Archives</a>
-      <a class="footLink" href="aboutus.html">About Us</a>
+      <a class="footLink" href="/">Home</a>
+      <a class="footLink" href="/medications">Medications</a>
+      <a class="footLink" href="/archives">Archives</a>
+      <a class="footLink" href="/about">About Us</a>
     </footer>
 
     <script type="text/javascript" src="scripts/app.js"></script>
