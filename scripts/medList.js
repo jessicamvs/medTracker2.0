@@ -1,64 +1,124 @@
-var totalListTable = document.getElementById('theTable');
+(function(module) {
+  var Medication = {};
+  var totalListTable = $('#theTable');
+  var drugName = $(document.createElement('td'));
+  var doseData = $(document.createElement('td'));
+  var doseType = $(document.createElement('td'));
+  var amountLeft = $(document.createElement('td'));
+  var medRows = document.createElement('tr');
 
-if (localStorage.drugArray) {
-  medications = JSON.parse(localStorage.getItem('drugArray'));
-} else {
-  medications = [];
-}
-
-Medication.renderCurrTable = function () {
-  if(localStorage.drugArray){
+  if (localStorage.drugArray) {
     medications = JSON.parse(localStorage.getItem('drugArray'));
     console.log(medications);
-    for(medication in medications) {
-      if (medications[medication].taking === false) {
-        var medRows = document.createElement('tr');
-        medRows.id = medications[medication].name;
-        var drugName = document.createElement('th');
-        drugName.innerHTML = '<a href="addmed.html" id=' + medications[medication].name + '>' + medications[medication].name.charAt(0).toUpperCase() + medications[medication].name.slice(1) + '</a>';
-        medRows.appendChild(drugName);
-        var doseData = document.createElement('td');
-        doseData.textContent = medications[medication].dosage;
-        var doseTypeData = document.createElement('td');
-        doseTypeData.textContent = medications[medication].doseType;
-        var amountLeft = document.createElement('td');
-        amountLeft.textContent = medications[medication].pillsLeft;
-        medRows.appendChild(doseData);
-        medRows.appendChild(doseTypeData);
-        medRows.appendChild(amountLeft);
-        var deleteMed = document.createElement('td');
-        var remove = document.createElement('a');
-        var linkText = document.createTextNode('Remove');
-        remove.id = medications[medication].name + 'remove';
-        remove.appendChild(linkText);
-        deleteMed.appendChild(remove);
-        remove.title = 'Remove';
-        remove.href = '';
-        medRows.appendChild(deleteMed);
-        totalListTable.appendChild(medRows);
-      };
-    };
-  };
-};
-
-//listening for a click on the med name to view prepopulated fields
-totalListTable.addEventListener('click', function(event) {
-  for(obj in medications) {
-    if (event.target.id === medications[obj].name) {
-      var jsonDrugClicked = JSON.stringify(medications[obj]);
-      localStorage.setItem('medClicked', jsonDrugClicked);
-    };
+  } else {
+    medications = [];
   }
-});
 
-//listening for a click on the remove to remove item from the list.
-totalListTable.addEventListener('click', function(event){
-  for(obj in medications) {
-    if(event.target.id === medications[obj].name + 'remove') {
-      medications[obj].taking = true;
-      var takenChanged = JSON.stringify(medications);
-      localStorage.setItem('drugArray', takenChanged);
+  Medication.buildTable = function() {
+    $('#theTable').append(medRows);
+    console.log('appended medRows');
+  };
+
+  Medication.populateCurrTable = function() {
+    // for(medication in medications){
+    for (i = 0; i < medications.length; i++) {
+      if(medications[i].taking === false) {
+        medRows.id = medications[i].name;
+        // medRows.appendChild(drugName);
+        // console.log('running populateCurrTable');
+        drugName.html = '<a href="addmed.html" id=' + medications[i].name + '>' + medications[ i].name.charAt(0).toUpperCase() + medications[i].name.slice(1) + '</a>';
+        console.log('drugname is' + drugName);
+      };
+      doseData.textContent = medications[medication].dosage;
+      console.log('dosage is' + doseData);
+      doseType.text = medications[medication].doseType;
+      console.log('dose type is' + doseType);
+      amountLeft.text = medications[medication].pillsLeft;
+      console.log('amount remaining is' + amountLeft);
+      Medication.buildTable();
+
     };
   };
-});
-Medication.renderCurrTable();
+
+
+  function myFunction(alpha, beta) {};
+
+
+  Medication.renderCurrTable = function () {
+    if(localStorage.drugArray){
+      medications = JSON.parse(localStorage.getItem('drugArray'));
+      var theTable = $(document.createElement('table'));
+      console.log('created the table');
+      //creates the initial table
+      // $('APPEND THE TABLE TO THE SECTION ID IN HTML').append(theTable);
+      var tableHeaders = "<tr class='headerRow'><th id='header1' >Medication Name</th><th id= 'header2'>Dosage</th><th id='doseType'>Dose Type</th><th id='header3'>Pills Left</th></tr>";
+      // $('TABLE ID FROM HTML HERE').append(tableHeaders);
+      $('#theTable').append(tableHeaders);
+      Medication.populateCurrTable();
+      console.log('called populateCurrTable');
+
+
+    }
+  };
+  //         medRows.appendChild(doseData);
+  //         medRows.appendChild(doseTypeData);
+  //         medRows.appendChild(amountLeft);
+  //         var deleteMed = document.createElement('td');
+  //         var remove = document.createElement('a');
+  //         var linkText = document.createTextNode('Remove');
+  //         remove.id = medications[medication].name + 'remove';
+  //         remove.appendChild(linkText);
+  //         deleteMed.appendChild(remove);
+  //         remove.title = 'Remove';
+  //         remove.href = '';
+  //         medRows.appendChild(deleteMed);
+  //         totalListTable.appendChild(medRows);
+  //       };
+  //     };
+  //   };
+  // };
+
+  //listening for a click on the med name to view prepopulated fields
+  // totalListTable.addEventListener('click', function(event) {
+  //   for(obj in medications) {
+  //     if (event.target.id === medications[obj].name) {
+  //       var jsonDrugClicked = JSON.stringify(medications[obj]);
+  //       localStorage.setItem('medClicked', jsonDrugClicked);
+  //     };
+  //   }
+  // });
+
+  //listening for a click on the remove to remove item from the list.
+  // totalListTable.addEventListener('click', function(event){
+  //   for(obj in medications) {
+  //     if(event.target.id === medications[obj].name + 'remove') {
+  //       medications[obj].taking = true;
+  //       var takenChanged = JSON.stringify(medications);
+  //       localStorage.setItem('drugArray', takenChanged);
+  //     };
+  //   };
+  // });
+
+
+  $(document).ready(function() {
+    Medication.renderCurrTable();
+  });
+
+  module.Medication = Medication;
+})(window);
+
+
+
+//
+//                                 //SEPARATE FUNCTION FOR THESE
+//
+//         var deleteMed = document.createElement('td');
+//         var remove = document.createElement('a');
+//         var linkText = document.createTextNode('Remove');
+//         remove.id = medications[medication].name + 'remove';
+//         remove.appendChild(linkText);
+//         deleteMed.appendChild(remove);
+//         remove.title = 'Remove';
+//         remove.href = '';
+//         medRows.appendChild(deleteMed);
+//         totalListTable.appendChild(medRows);`
